@@ -11,3 +11,14 @@ def get_user(user_id):
     if user == {}:
         return Response('User does not exist', status=404)
     return dumps(user, cls=UserEncoder)
+
+#User login (returns id, fethces the user from the front-end into route above to fetch data for user dashboard)
+@app.route('/users/login', methods=['POST'])
+def user_login():
+    req_body = request.get_json()
+    email = req_body['email']
+    password = req_body['password']
+    user_id = user_services.get_user_id(email, password)
+    if user_id == 'Wrong credentials':
+        return Response('Invalid credentials', status=401)
+    return dumps(user_id, cls=UserEncoder)
