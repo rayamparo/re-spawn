@@ -12,7 +12,7 @@ def get_users_lists(user_id):
         con.close()
 
 #POST new list for user
-def post_new_lists(user_id, list_name):
+def post_new_list(user_id, list_name):
     try:
         con = db_connection()
         cur = con.cursor()
@@ -22,11 +22,11 @@ def post_new_lists(user_id, list_name):
         con.close()
 
 #GET list by name
-def get_list_by_name(list_name):
+def get_list_by_name(user_id, list_name):
     try:
         con = db_connection()
         cur = con.cursor()
-        cur.execute("SELECT * FROM lists WHERE list_name = %s", (list_name,))
+        cur.execute("SELECT * FROM lists WHERE owner_id = %s AND list_name = %s", (user_id, list_name))
         query_rows = cur.fetchall()
         return query_rows
     finally:
