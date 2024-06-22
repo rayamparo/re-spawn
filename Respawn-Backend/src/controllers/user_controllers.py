@@ -19,6 +19,20 @@ def user_login():
     email = req_body['email']
     password = req_body['password']
     user_id = user_services.get_user_id(email, password)
-    if user_id == 'Wrong credentials':
-        return Response('Invalid credentials', status=401)
+    if user_id == 'Wrong credentials.':
+        return Response('Invalid credentials.', status=401)
     return dumps(user_id, cls=UserEncoder)
+
+# POST new user
+@app.route('/users/register', methods=['POST'])
+def user_register():
+    req_body = request.get_json()
+    email = req_body['email']
+    password = req_body['password']
+    gamertag = req_body['gamertag']
+    created_user = user_services.create_user(email, password, gamertag)
+    if created_user == 'User already exists.':
+        return Response('User already exists.', status=409)
+    if created_user == 'User not created, please try again.':
+        return Response('User not created, please try again.', status=504)
+    return Response('User successfully created.', status=201)

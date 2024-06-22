@@ -15,5 +15,17 @@ def get_user_by_id(user_id):
 def get_user_id(email, password):
     user_id = user_dao.get_user_id(email, password)
     if user_id == []:
-        return 'Wrong credentials'
+        return 'Wrong credentials.'
     return user_id[0][0]
+
+#Create new user
+def create_user(email, password, gamertag):
+    check_if_user_exists = get_user_id(email, password)
+    if check_if_user_exists != 'Wrong credentials.':
+        return 'User already exists.'
+    #Create user
+    user_dao.create_new_user(email, password, gamertag)
+    #Check if created user is in DB
+    check_for_user = get_user_id(email, password)
+    if check_for_user == []:
+        return 'User not created, please try again.'
