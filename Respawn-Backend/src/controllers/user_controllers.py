@@ -1,5 +1,5 @@
 from src.app import app
-from flask import request, Response, redirect, render_template, make_response, jsonify
+from flask import request, Response
 from json import dumps
 from src.models.user_model import UserEncoder
 import src.services.user_services as user_services
