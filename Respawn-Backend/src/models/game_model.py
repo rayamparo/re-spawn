@@ -1,6 +1,5 @@
 class Game:
-
-    def __int__(self, owner_id, game_id, game_name, game_release_date, game_summary, game_status, game_list):
+    def __init__(self, owner_id, game_id, game_name, game_release_date, game_summary, game_status, game_list):
         self._owner_id = owner_id
         self._game_id = game_id
         self._game_name = game_name

@@ -1,6 +1,7 @@
 import src.dao.user_dao as user_dao
 from src.models.user_model import User
 import src.services.lists_services as lists_services
+import src.services.game_services as game_services
 
 #Gets user via ID
 def get_user_by_id(user_id):
@@ -9,7 +10,8 @@ def get_user_by_id(user_id):
         return {}
     users_lists = lists_services.get_users_lists(user_id)
     # Currently placing 0's for user_games_list and user_lists until I create the controllers for the games and lists
-    return User(user[0][0], user[0][1], user[0][2], user[0][3], 0, users_lists)
+    users_games = game_services.get_users_games(user_id)
+    return User(user[0][0], user[0][1], user[0][2], user[0][3], users_games, users_lists)
 
 #Gets user ID
 def get_user_id(email, password):
