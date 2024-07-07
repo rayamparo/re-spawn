@@ -10,6 +10,7 @@ def get_users_lists(user_id):
         lists_dict[count] = list[2]
     return lists_dict
 
+#GET a list by name
 def get_list_by_name(user_id, list_name):
     lists_dao.get_list_by_name(user_id, list_name)
 
@@ -25,3 +26,6 @@ def post_new_list(user_id, list_name):
     if check_list == []:
         return 'List was not created, please try again.'
     return 'List successfully created.'
+
+def update_list_for_game(user_id, list_name, game_id):
+    return 'working'
