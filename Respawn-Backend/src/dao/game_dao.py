@@ -41,3 +41,14 @@ def remove_game(user_id, game_id):
         con.commit()
     finally:
         con.close()
+
+#GET all games by for user by list name
+def get_games_by_list(user_id, list_name):
+    try:
+        con = db_connection()
+        cur = con.cursor()
+        cur.execute("SELECT * FROM games WHERE owner_id = %s AND game_list = %s", (user_id, list_name))
+        query_rows = cur.fetchall()
+        return query_rows
+    finally:
+        con.close()

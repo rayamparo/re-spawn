@@ -8,6 +8,10 @@ import src.services.game_services as game_services
 @app.route('/users/<int:user_id>/games', methods=['GET', 'POST', 'DELETE'])
 def get_users_games(user_id):
     if request.method == 'GET':
+        if 'get_games_by_list_name' in request.args:
+            list_name = request.args.get('get_games_by_list_name')
+            games_by_list = game_services.get_games_by_list(user_id, list_name)
+            return dumps(games_by_list, cls=UserEncoder)
         users_games = game_services.get_users_games(user_id)
         return dumps(users_games, cls=UserEncoder)
     if request.method == 'POST':

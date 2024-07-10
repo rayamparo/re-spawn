@@ -58,5 +58,12 @@ def remove_game(user_id, game_id):
     game_dao.remove_game(user_id, game_id)
 
 #GET all games with a list name
-def get_games_by_list(user_id, game_list):
-    return 'working'
+def get_games_by_list(user_id, list_name):
+    games_by_list_name = game_dao.get_games_by_list(user_id, list_name)
+    users_games_list = []
+    count = 0
+    if len(games_by_list_name) > 0:
+        for game in games_by_list_name:
+            users_games_list.insert(count, Game(game[0], game[1], game[2], str(game[3]), game[4], game[5], game[6]))
+            count + 1
+    return users_games_list
