@@ -27,5 +27,6 @@ def post_new_list(user_id, list_name):
         return 'List was not created, please try again.'
     return 'List successfully created.'
 
-def update_list_for_game(user_id, list_name, game_id):
-    return 'working'
+def update_list_for_game(user_id, game_id, updated_list_name):
+    lists_dao.update_list_name(user_id, game_id, updated_list_name)
+    return 'Updated game list successfully.'

@@ -31,3 +31,13 @@ def get_list_by_name(user_id, list_name):
         return query_rows
     finally:
         con.close()
+
+#PUT update list for a user's game
+def update_list_name(user_id, game_id, updated_list_name):
+    try:
+        con = db_connection()
+        cur = con.cursor()
+        cur.execute("UPDATE games set game_list = %s WHERE owner_id = %s AND game_id = %s", (updated_list_name, user_id, game_id))
+        con.commit()
+    finally:
+        con.close()
