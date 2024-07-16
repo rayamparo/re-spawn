@@ -1,0 +1,97 @@
+body {
+    background-color: #1C2440 !important;;
+    text-align: center;
+}
+
+#loginCard {
+    position: relative;
+    height: 70%;
+    width: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.95;
+    border-radius: 25px !important;
+}
+
+.form-label {
+    color: black;
+    float: left;
+}
+
+i {
+    color: #F24042;
+}
+
+.card-body {
+    width: 100%;
+    background-color: white;
+}
+
+.btn {
+    margin: 20px;
+    font-weight: 700;
+    padding: .5rem 1.2rem;
+    background-color: #E46C40;
+}
+
+img {
+    max-width: 25%;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+#respwn {
+    color: white;
+    font-weight: 800;
+}
+
+#circle1 {
+    background: #E56D40;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    position: relative;
+    top: -25px;
+    left: -125px;
+}
+
+#circle2 {
+    background: #E56D40;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    position: relative;
+    left: 550px;
+}
+
+
+#imgTitle {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+#circle3 {
+    background: repeating-linear-gradient(-55deg, rgba(255, 255, 255, 0) 0.8px, #E56D40 1.6px, #E8C547 3px, rgba(255, 255, 255, 0) 3.8px, rgba(255, 255, 255, 0) 10px);
+    width: 200px !important;
+    height: 200px;
+    border-radius: 50% !important;
+    border-radius: 50% !important;
+    position: relative;
+    bottom: -10px;
+    left: 400px;
+}
+
+#circle4 {
+    background: repeating-linear-gradient(-55deg, rgba(255, 255, 255, 0) 0.8px, #E56D40 1.6px, #E8C547 3px, rgba(255, 255, 255, 0) 3.8px, rgba(255, 255, 255, 0) 10px);
+    width: 200px !important;
+    height: 200px;
+    border-radius: 50% !important;
+    border-radius: 50% !important;
+    position: absolute;
+    top: -30px;
+    right: 40px;
+}
+
+/* background-color: #1C2440 !important; */
